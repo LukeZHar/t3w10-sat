@@ -7,3 +7,21 @@ jobs:
         runs-on: ubuntu-latest
         steps: 
             - run: echo "Hello World"
+
+            # Checkout a copy of the repo's code so we can use it in this automation workflow 
+            - name: Checkout
+              uses: actions/checkout@v4.2.2
+
+            # Setup NodeJS
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v4.1.0
+              with:
+                node-version: 'latest'
+
+            # Install NPM Packages
+            - name: Install dependencies for our project
+              run: npm install
+
+            # Run our project test commans 
+            - name: Run tests
+              run: npm run test
