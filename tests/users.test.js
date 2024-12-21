@@ -75,8 +75,9 @@ describe("Users route", () => {
             // });
 
         expect(response.body.authHeaderData).toBeUndefined();
-        expect(response.statusCode).toBe(500);
+        expect(response.body.status).toBe(500);
         expect(response.body.error).toBe("Not a valid login data");
+
     });
 
     test.skip("'Update/Edit user' route returns a specific user only", async () => {
